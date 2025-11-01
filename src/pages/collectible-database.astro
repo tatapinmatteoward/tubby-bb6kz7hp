@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const collectibles = [
+  {
+    id: 1,
+    name: "Tinky Winky Plush",
+    character: "Tinky Winky",
+    rarity: "Common",
+    value: "$15",
+    image: "tinky"
+  },
+  {
+    id: 2,
+    name: "Dipsy Enamel Pin",
+    character: "Dipsy",
+    rarity: "Rare",
+    value: "$8",
+    image: "dipsy"
+  },
+  {
+    id: 3,
+    name: "Laa-Laa Soft Sculpture",
+    character: "Laa-Laa",
+    rarity: "Epic",
+    value: "$25",
+    image: "laa-laa"
+  },
+  {
+    id: 4,
+    name: "Po's Scooter Replica",
+    character: "Po",
+    rarity: "Legendary",
+    value: "$45",
+    image: "po"
+  },
+  {
+    id: 5,
+    name: "Teletubby House Set",
+    character: "All",
+    rarity: "Common",
+    value: "$35",
+    image: "house"
+  },
+  {
+    id: 6,
+    name: "Tinky Winky Hat",
+    character: "Tinky Winky",
+    rarity: "Uncommon",
+    value: "$12",
+    image: "hat"
+  }
+];
+
+const features = [
+  {
+    icon: "fas fa-search",
+    title: "Character Search",
+    text: "Find items by your favorite Teletubbies character"
+  },
+  {
+    icon: "fas fa-filter",
+    title: "Rarity Filter",
+    text: "Discover rare and limited edition pieces"
+  },
+  {
+    icon: "fas fa-chart-line",
+    title: "Value Tracking",
+    text: "Monitor market trends and collectible values"
+  }
+];
+---
+
+<Layout title="Tubby Collectible Database" description="Explore our vibrant database of Teletubbies collectibles! From plushies to rare figures, discover treasures that bring the whimsical world of Tinky Winky, Dipsy, Laa-Laa, and Po to life for fans everywhere.">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-purple-600 via-indigo-700 to-purple-800 py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+      <div class="absolute top-0 right-0 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+      <div class="absolute bottom-0 left-1/2 w-64 h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-wide">
+        Tubby Collectible Database
+      </h1>
+      <p class="text-xl md:text-2xl text-orange-200 max-w-3xl mx-auto mb-8 font-light">
+        Discover the Joyful World of Teletubbies with Fellow Fans
+      </p>
+      <div class="flex justify-center space-x-4">
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-star text-purple-600 text-2xl"></i>
+        </div>
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-heart text-orange-500 text-2xl"></i>
+        </div>
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
+          <i class="fas fa-magic text-purple-600 text-2xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-purple-800 mb-4">Why Collect Teletubbies?</h2>
+      <p class="text-lg text-purple-600 max-w-3xl mx-auto">
+        The Teletubbies world is all about pure joy and playful geometry. Collecting these items lets you relive sunny hill adventures and tubby custard dreams.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div 
+          key={index} 
+          class="bg-gradient-to-br from-white to-purple-50 rounded-2xl p-8 shadow-xl border-2 border-purple-100 transform hover:scale-105 transition-all duration-300"
+        >
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-6">
+            <i class={`${feature.icon} text-white text-2xl`}></i>
+          </div>
+          <h3 class="text-2xl font-bold text-purple-800 mb-3">{feature.title}</h3>
+          <p class="text-purple-600">{feature.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Database Section -->
+  <section class="py-16 bg-gradient-to-b from-white to-purple-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-purple-800 mb-4">Our Collectible Database</h2>
+        <p class="text-lg text-purple-600 max-w-3xl mx-auto">
+          Explore our vibrant collection of Teletubbies treasures curated by fellow fans
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {collectibles.map((item) => (
+          <div 
+            key={item.id} 
+            class="bg-white rounded-2xl overflow-hidden shadow-xl border-4 border-purple-200 transform hover:scale-105 transition-all duration-300"
+          >
+            <div class="h-48 bg-gradient-to-r from-purple-400 to-orange-400 flex items-center justify-center">
+              <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
+                <span class="text-5xl font-bold text-purple-700">{item.image.charAt(0).toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-purple-800">{item.name}</h3>
+                <span class={`px-3 py-1 rounded-full text-sm font-semibold ${
+                  item.rarity === 'Legendary' ? 'bg-yellow-100 text-yellow-800' :
+                  item.rarity === 'Epic' ? 'bg-purple-100 text-purple-800' :
+                  item.rarity === 'Rare' ? 'bg-orange-100 text-orange-800' :
+                  'bg-green-100 text-green-800'
+                }`}>
+                  {item.rarity}
+                </span>
+              </div>
+              <p class="text-purple-600 mb-4">Character: <span class="font-semibold">{item.character}</span></p>
+              <div class="flex justify-between items-center">
+                <span class="text-2xl font-bold text-purple-700">{item.value}</span>
+                <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors duration-300">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Tracking Section -->
+  <section class="py-16 bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Track Collectible Values</h2>
+          <p class="text-xl mb-6">
+            Monitor market trends and see how your collection is valued over time
+          </p>
+          <div class="flex space-x-4">
+            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+              <p class="text-sm">Average Value</p>
+              <p class="text-2xl font-bold">$22.50</p>
+            </div>
+            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+              <p class="text-sm">Most Valued</p>
+              <p class="text-2xl font-bold">$45.00</p>
+            </div>
+            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+              <p class="text-sm">Total Items</p>
+              <p class="text-2xl font-bold">24</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative w-64 h-64">
+            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-purple-500 rounded-full flex items-center justify-center">
+              <div class="w-48 h-48 bg-white bg-opacity-10 rounded-full flex items-center justify-center">
+                <div class="text-center">
+                  <p class="text-xl font-bold">Market Trend</p>
+                  <p class="text-3xl font-bold mt-2">↑ 12%</p>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+              <div class="w-32 h-32 bg-gradient-to-r from-purple-600 to-orange-400 rounded-full flex items-center justify-center">
+                <i class="fas fa-chart-line text-white text-3xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-orange-400 to-purple-500">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Collection?</h2>
+      <p class="text-xl text-white max-w-2xl mx-auto mb-8">
+        Join thousands of fellow Teletubbies fans in discovering and collecting the joy of these colorful characters.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <button class="bg-white text-purple-700 hover:bg-purple-100 font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 shadow-lg">
+          Explore Collection
+        </button>
+        <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-purple-700 font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300">
+          Join Community
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+    
+    .animate-blob {
+      animation: blob 20s infinite;
+    }
+    
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+  </style>
+</Layout>
